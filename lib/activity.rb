@@ -9,4 +9,9 @@ attr_reader :name, :participants
     @participants << data
   end
 
+  def total_cost
+    @participants.map do |participant|
+      participant[:paid]
+    end.sum
+  end
 end
