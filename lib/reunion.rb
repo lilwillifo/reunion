@@ -19,4 +19,10 @@ class Reunion
     number_of_participants = @activities[0].participants.length
     total_cost / number_of_participants
   end
+
+  def amount_owed(name)
+    @activities.map do |activity|
+      activity.amount_owed(name)
+    end.sum
+  end
 end
