@@ -1,0 +1,28 @@
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Your Reunion!</title>
+</head>
+<body>
+  <p>Thanks for coming to the reunion.</p>
+
+  <p>
+    A few notes on the reunion:
+  </p>
+
+  <table>
+    <% if activities.kind_of?(Array) %>
+      <th>Activity</th><th>Total Cost</th>
+        <% activities.each do |activity| %>
+        <tr>
+          <td><%= "#{activity.name}" %></td>
+          <td><%= "#{activity.total_cost}" %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <th></th>
+      <td><%= "#{activity.name}" %></td>
+    <% end %>
+  </table>
+</body>
+</html>
