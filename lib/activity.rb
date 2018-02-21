@@ -17,4 +17,8 @@ attr_reader :name, :participants
   def split_cost
     total_cost / @participants.length.to_f
   end
+
+  def amount_owed(name)
+    split_cost - @participants[name]
+  end
 end
