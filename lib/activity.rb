@@ -1,8 +1,9 @@
 require 'pry'
 class Activity
-attr_reader :name, :participants
-  def initialize(name)
+attr_reader :name, :participants, :total_cost
+  def initialize(name, total_cost)
     @name = name
+    @total_cost = total_cost
     @participants = {}
   end
 
@@ -10,12 +11,8 @@ attr_reader :name, :participants
     @participants[data[:name]] = data[:paid]
   end
 
-  def total_cost
-    @participants.values.inject(:+)
-  end
-
   def split_cost
-    total_cost / @participants.length.to_f
+    @total_cost / @participants.length.to_f
   end
 
   def amount_owed(name)

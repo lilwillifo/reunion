@@ -7,7 +7,7 @@ class Reunion
     @activities = []
   end
 
-  def add_activity(name)
-    @activities << Activity.new(name)
+  def add_activity(name, price)
+    @activities << Activity.new(name, price)
   end
 end
