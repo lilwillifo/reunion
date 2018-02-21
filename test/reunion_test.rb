@@ -46,8 +46,8 @@ class ReunionTest < Minitest::Test
   end
 
   def test_print_summary
-    expected = 'Margaret, you owe 15.00. Matt, you are owed 5.00.'\
-               'Kelly, you are owed 10.00.'
+    expected = 'Margaret, you owe $15.00. Matt, you are owed $5.00. '\
+               'Kelly, you are owed $10.00.'
     assert_equal expected, @reunion.print_summary
   end
 end

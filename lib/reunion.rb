@@ -25,4 +25,17 @@ class Reunion
       activity.amount_owed(name)
     end.sum
   end
+
+  def print_summary
+    names = @activities[0].participants.keys
+    names.map do |name|
+      if amount_owed(name) > 0
+      "#{name}, you owe $#{'%.2f' % amount_owed(name)}."
+      elsif amount_owed(name) < 0
+        "#{name}, you are owed $#{'%.2f' % (amount_owed(name) * -1)}."
+      else
+        "#{name}, you are all set! Way to be."
+      end
+    end.join(' ')
+  end
 end
