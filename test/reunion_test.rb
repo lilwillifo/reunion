@@ -29,10 +29,12 @@ class ReunionTest < Minitest::Test
     assert_equal 3, reunion.activities.length
   end
 
-  def total_cost
+  def test_total_cost
     reunion = Reunion.new('Charlottesville')
-    reunion.add_activity('hiking')
+    reunion.add_activity('hiking', 45.00)
+    reunion.add_activity('frolicking', 100.00)
+    reunion.add_activity('ghost tourz!!!', 75.00)
 
-
+    assert_equal 220.00, reunion.total_cost
   end
 end
