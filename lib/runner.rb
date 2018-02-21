@@ -31,7 +31,7 @@ class Runner
   def build_template(reunion)
     activities = reunion.activities
     website = @erb_template.result(binding)
-    Dir.mkdir('output') unless Dir.exists?('output')
+    Dir.mkdir('output') unless Dir.exist?('output')
 
     filename = 'output/reunion_site.html'
 

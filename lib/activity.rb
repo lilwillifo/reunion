@@ -1,6 +1,6 @@
 require 'pry'
 class Activity
-attr_reader :name, :participants, :total_cost
+  attr_reader :name, :participants, :total_cost
   def initialize(name, total_cost)
     @name = name
     @total_cost = total_cost
