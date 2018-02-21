@@ -31,5 +31,13 @@ class Runner
   def build_template(reunion)
     activities = reunion.activities
     website = @erb_template.result(binding)
+    Dir.mkdir('output') unless Dir.exists?('output')
+
+    filename = 'output/reunion_site.html'
+
+    File.open(filename, 'w') do |file|
+      file.puts website
+    end
   end
 end
+Runner.new
