@@ -12,8 +12,11 @@ class Reunion
   end
 
   def total_cost
-    @activities.map do |activity|
-      activity.total_cost
-    end.sum
+    @activities.map(&:total_cost).sum
+  end
+
+  def split_cost
+    number_of_participants = @activities[0].participants.length
+    total_cost / number_of_participants
   end
 end

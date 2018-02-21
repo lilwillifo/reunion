@@ -37,4 +37,22 @@ class ReunionTest < Minitest::Test
 
     assert_equal 220.00, reunion.total_cost
   end
+
+  def test_amount_owed
+    reunion = Reunion.new('Charlottesville')
+
+    reunion.add_activity('hiking', 45.00)
+    reunion.add_activity('frolicking', 90.00)
+
+    reunion.activities[0].add_participant(name: 'Margaret', paid: 10.00)
+    reunion.activities[0].add_participant(name: 'Matt', paid: 20.00)
+    reunion.activities[0].add_participant(name: 'Kelly', paid: 15.00)
+
+    reunion.activities[1].add_participant(name: 'Margaret', paid: 20.00)
+    reunion.activities[1].add_participant(name: 'Matt', paid: 30.00)
+    reunion.activities[1].add_participant(name: 'Kelly', paid: 40.00)
+
+    assert_equal 135.00, reunion.total_cost
+    assert_equal 45.00, reunion.split_cost
+  end
 end
