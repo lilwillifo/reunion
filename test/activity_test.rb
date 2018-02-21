@@ -13,4 +13,14 @@ class ActivityTest < Minitest::Test
     activity = Activity.new('hiking')
     assert_equal 'hiking', activity.name
   end
+
+  def test_it_has_participants
+    activity = Activity.new('hiking')
+
+    assert_instance_of Array, activity.participants
+
+    activity.add_participant(name: 'Margaret', paid: 10.00)
+
+    assert_equal 'Margaret', activity.participants[0][:name]
+  end
 end
