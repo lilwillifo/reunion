@@ -1,3 +1,4 @@
+require 'pry'
 class Activity
 attr_reader :name, :participants
   def initialize(name)
@@ -11,5 +12,9 @@ attr_reader :name, :participants
 
   def total_cost
     @participants.values.inject(:+)
+  end
+
+  def split_cost
+    total_cost / @participants.length.to_f
   end
 end
