@@ -17,15 +17,15 @@ class ActivityTest < Minitest::Test
   def test_it_has_participants
     activity = Activity.new('hiking')
 
-    assert_instance_of Array, activity.participants
+    assert_instance_of Hash, activity.participants
 
     activity.add_participant(name: 'Margaret', paid: 10.00)
     activity.add_participant(name: 'Matt', paid: 20.00)
     activity.add_participant(name: 'Kelly', paid: 15.00)
 
-    assert_equal 'Margaret', activity.participants[0][:name]
-    assert_equal 20.00, activity.participants[1][:paid]
-    assert_equal 'Kelly', activity.participants[2][:name]
+    assert_equal 10.00, activity.participants['Margaret']
+    assert_equal 20.00, activity.participants['Matt']
+    assert_equal 15.00, activity.participants['Kelly']
   end
 
   def test_total_cost
